@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Frame, Page, View, Text, Component, StyleSheet } from 'react-figma';
+import { Frame, Page, View, Text, Component, StyleSheet, useStyleByKey } from 'react-figma';
 
 import * as facebookIcon from './icons/001-facebook.png';
 import * as twitterIcon from './icons/002-twitter.png';
@@ -80,17 +80,18 @@ const SpaceFrame = () => {
 };
 
 const TypeFrame = props => {
+    const fillStyle = useStyleByKey('a79eac2286ba187dc9dd2740562020fee74e1566');
     return (
         <Frame name="Type" style={[styles.frame, props.style]}>
             <Text style={styles.heading}>Type</Text>
 
             <Component name="HeaderH1" style={styles.component}>
-                <Text style={{ fontSize: 64, color: '#000000' }}>Header 1</Text>
+                <Text style={{ fillStyleId: fillStyle && fillStyle.id }}>Header 1</Text>
             </Component>
             <Text style={styles.hint}>64px</Text>
 
             <Component name="HeaderH2" style={styles.component}>
-                <Text style={{ fontSize: 44, color: '#000000' }}>Header 2</Text>
+                <Text style={{ fontSize: 44, color: '#000000', fillStyleId: fillStyle && fillStyle.id }}>Header 2</Text>
             </Component>
             <Text style={styles.hint}>44px</Text>
 

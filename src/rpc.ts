@@ -230,6 +230,10 @@ export const api = createPluginAPI(
             return paintStyle.id;
         },
 
+        async importStyleByKeyAsync(key: string): Promise<BaseStyle> {
+            return figma.importStyleByKeyAsync(key);
+        },
+
         createOrUpdateTextStyle(properties: { textProperties: any | void; params: CommonStyleProps; loadedFont: any }) {
             const { textProperties = {}, params, loadedFont } = properties;
             const { name, id, description } = params;
